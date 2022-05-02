@@ -1,0 +1,4 @@
+GET https://api.openweathermap.org/data/2.5/weather?lat=51.5085&lon=-0.1257&appid=c50214a19b0f33c5bc30c66b9efa1b5c
+
+###
+GET https://api.openweathermap.org/data/2.5/weather?q=london&appid=c50214a19b0f33c5bc30c66b9efa1b5c
