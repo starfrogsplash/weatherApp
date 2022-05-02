@@ -1,4 +1,4 @@
-import {Icon} from './Icon'
+import { Icon } from './Icon';
 import { format, fromUnixTime } from 'date-fns';
 
 const Widget = ({ data }: any) => {

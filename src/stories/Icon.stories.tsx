@@ -13,11 +13,11 @@ export default {
   },
 } as ComponentMeta<typeof Icon>;
 
-const Template: ComponentStory<typeof Icon> = (args) => <Icon {...args} />;
+const Template: ComponentStory<typeof Icon> = args => <Icon {...args} />;
 
 export const icon = Template.bind({});
 
-const iconId = 803
-const iconUrl = 'http://openweathermap.org/img/wn/04d@2x.png'
+const iconId = 803;
+const iconUrl = 'http://openweathermap.org/img/wn/04d@2x.png';
 
 icon.args = { iconId, iconUrl };

@@ -1,5 +1,5 @@
 import './index.scss';
-import {App} from './App';
+import { App } from './App';
 import { createRoot } from 'react-dom/client';
 import React from 'react';
 import reportWebVitals from './reportWebVitals';

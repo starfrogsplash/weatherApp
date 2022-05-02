@@ -15,30 +15,32 @@ export default {
   },
 } as ComponentMeta<typeof Widget>;
 
-const Template: ComponentStory<typeof Widget> = (args) => <Widget {...args} />;
+const Template: ComponentStory<typeof Widget> = args => <Widget {...args} />;
 
 export const widget = Template.bind({});
 
 const sys = {
-  sunrise: 167317236
-}
+  sunrise: 167317236,
+};
 const main = {
   humidity: 70,
-  temp: 20
-}
-const weather = [{
-  description: 'partly cloudy',
-  icon: `04d`
-}]
+  temp: 20,
+};
+const weather = [
+  {
+    description: 'partly cloudy',
+    icon: `04d`,
+  },
+];
 const wind = {
-  speed: 16
-}
+  speed: 16,
+};
 
 const data = {
   sys,
   main,
   weather,
-  wind
-}
+  wind,
+};
 
 widget.args = { data };

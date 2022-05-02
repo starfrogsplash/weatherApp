@@ -6,16 +6,16 @@ import axios from 'axios';
 const apiKey = process.env.REACT_APP_API_KEY;
 
 interface data {
-  name: string
-  main: Record<string, number>
-  sys:Record<string, string | number> 
-  weather:Record<string, string | number>[]
-  wind: Record<string, number>
+  name: string;
+  main: Record<string, number>;
+  sys: Record<string, string | number>;
+  weather: Record<string, string | number>[];
+  wind: Record<string, number>;
 }
 
 const App = () => {
   const [inputValue, setInputValue] = useState('');
-  const [data, setData] = useState <data>();
+  const [data, setData] = useState<data>();
   const [error, setError] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,14 +26,18 @@ const App = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(inputValue)}&appid=${apiKey}&units=metric`);
+      const res = await axios.get(
+        `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
+          inputValue,
+        )}&appid=${apiKey}&units=metric`,
+      );
       setData(res.data);
-      setError('')
+      setError('');
     } catch (error: any) {
-      if(axios.isAxiosError(error) && error?.response?.status === 404){
-        setError(error.response.data.message)
+      if (axios.isAxiosError(error) && error?.response?.status === 404) {
+        setError(error.response.data.message);
       } else {
-        setError('something went wrong')
+        setError('something went wrong');
       }
     }
   };
@@ -63,26 +67,25 @@ const App = () => {
                 Submit
               </button>
 
-              {error && 
-               <div role="alert">
-               <div className="border text-center border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
-                 <p>{error}</p>
-               </div>
-             </div>
-            }
-             
+              {error && (
+                <div role="alert">
+                  <div className="border text-center border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+                    <p>{error}</p>
+                  </div>
+                </div>
+              )}
+
               <div className="mb-2 mt-3 text-3xl font-light text-center text-gray-800 dark:text-white">
-                 { data &&`${data.name} - ${data.sys.country}`}
+                {data && `${data.name} - ${data.sys.country}`}
               </div>
-              <div className="text-4xl font-light text-center text-gray-800 dark:text-white">
-              </div>
-              <Widget data={data}/>
+              <div className="text-4xl font-light text-center text-gray-800 dark:text-white"></div>
+              <Widget data={data} />
             </div>
           </div>
         </div>
       </form>
     </div>
   );
-}
+};
 
 export { App };
